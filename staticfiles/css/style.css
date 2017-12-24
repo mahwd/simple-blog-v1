@@ -1,0 +1,50 @@
+.messages {
+    background: green;
+    width: 100%;
+    height: 50px;
+}
+
+.card-info {
+    padding: 0 50px 50px;
+    background-color: #dddfdf;
+    box-shadow: 0 0 18px 3px #aaa;
+    margin-bottom: 50px;
+}
+
+.cards {
+    height:300px;
+    background: #dddfdf;
+    margin: 48px;
+    box-shadow: 0 0 18px 3px #aaa;
+    cursor: pointer;
+}
+
+.date {
+    color: #777;
+    font-style: italic;
+}
+
+.cards > h3 {
+    word-wrap: break-word;
+    color: #555;
+    border-bottom: 1px solid #aaa;
+}
+.cards > img {
+    height: 100%;
+    float: right;
+}
+.cards > .card-text {
+    margin-bottom: 44px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.buttons-container {
+    padding: 5px;
+}
+
+.btn {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}

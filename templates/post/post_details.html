@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block title %}
+    Post
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 card-info">
+                <h3 class="card-title">{{ post.title }}</h3>
+                <img src="/media/{{ post.image }}" class="img-responsive">
+                <p class="card-text">{{ post.content }}</p>
+                {% if request.user.is_authenticated %}
+                    <div class="buttons-container">
+                        <a href="{{ post.get_update_url }}" class="btn btn-warning">Dəyiş</a>
+                        <a href="{{ post.get_delete_url }}" class="btn btn-danger">Sil</a>
+                        <a href="{% url "insta_app:post_index" %}" class="btn btn-info">Geri</a>
+                    </div>
+                    <div class="buttons-container">
+                        <p class="date">{{ post.publish_date }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

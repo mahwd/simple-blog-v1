@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block title %}Posts{% endblock %}
+{% load static %}
+{% block content %}
+    {% for post in posts %}
+        <div class="row">
+            <div class="col-xs-12 col-md-12 cards" onclick="location.href = '{{ post.get_absolute_url }}'">
+                <img src="/media/{{ post.image }}" class="img-responsive">
+                <h3 class="card-title">{{ post.title }}</h3>
+                    <p class="card-text">{{ post.content }}</p>
+                    {% if request.user.is_authenticated %}
+                        <div class="buttons-container">
+                            <a href="{{ post.get_update_url }}" class="btn btn-info">Dəyiş</a>
+                            <a href="{{ post.get_delete_url }}" class="btn btn-danger">Sil</a>
+                        </div>
+                        <div class="buttons-container">
+                            <p class="date"> {{ post.publish_date }} </p>
+                        </div>
+                    {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+{% block script %}
+    <script>
+    function handleCLick() {
+
+                }
+    </script>
+{% endblock %}
