@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.urls import reverse
 from django.utils.text import slugify
 from random import randint
+from ckeditor.fields import RichTextField
 
 
 class User(models.Model):
@@ -13,7 +14,7 @@ class User(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=50, verbose_name="Başlıq")
-    content = models.TextField(max_length=250, default="", verbose_name="Mətn")
+    content = RichTextField(verbose_name="Mətn")
     publish_date = models.DateField(verbose_name="Tarix", default=timezone.now)
     image = models.ImageField(null=True, blank=True, verbose_name='Şəkil')
     slug = models.SlugField(unique=True, editable=False, max_length=130)

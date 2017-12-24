@@ -10,7 +10,7 @@
             <div class="col-xs-12 col-md-12 card-info">
                 <h3 class="card-title">{{ post.title }}</h3>
                 <img src="/media/{{ post.image }}" class="img-responsive">
-                <p class="card-text">{{ post.content }}</p>
+                <p class="card-text">{{ post.content| safe }}</p>
                 {% if request.user.is_authenticated %}
                     <div class="buttons-container">
                         <a href="{{ post.get_update_url }}" class="btn btn-warning">Dəyiş</a>
@@ -19,6 +19,9 @@
                     </div>
                     <div class="buttons-container">
                         <p class="date">{{ post.publish_date }}</p>
+                    </div>
+                    <div class="comment-container">
+                        <input type="text" placeholder="comment">
                     </div>
                 {% endif %}
             </div>

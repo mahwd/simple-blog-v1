@@ -7,7 +7,7 @@
             <div class="col-xs-12 col-md-12 cards" onclick="location.href = '{{ post.get_absolute_url }}'">
                 <img src="/media/{{ post.image }}" class="img-responsive">
                 <h3 class="card-title">{{ post.title }}</h3>
-                    <p class="card-text">{{ post.content }}</p>
+                    <p class="card-text">{{post.content|safe}}</p>
                     {% if request.user.is_authenticated %}
                         <div class="buttons-container">
                             <a href="{{ post.get_update_url }}" class="btn btn-info">Dəyiş</a>
