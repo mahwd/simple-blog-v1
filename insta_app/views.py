@@ -28,7 +28,7 @@ def post_add(request):
     if request.method == "GET" and request.user.is_authenticated:
         form = PostForm()
         context = {'form': form}
-        return render(request, "post_form.html", context=context)
+        return render(request, "post/post_form.html", context=context)
     elif request.user.is_authenticated:  # POST
         form = PostForm(request.POST, request.FILES or None)
         if form.is_valid():
@@ -39,7 +39,7 @@ def post_add(request):
 
 def post_details(request, slug):
     context = {"post": get_object_or_404(Post, slug=slug)}
-    return render(request, "post_details.html", context=context)
+    return render(request, "post/post_details.html", context=context)
 
 
 def post_update(request, slug):
@@ -47,7 +47,7 @@ def post_update(request, slug):
         _post = get_object_or_404(Post, slug=slug)
         form = PostForm(instance=_post)
         context = {'form': form, 'update': True}
-        return render(request, "post_form.html", context=context)
+        return render(request, "post/post_form.html", context=context)
     else:
         _post = get_object_or_404(Post, slug=slug)
         form = PostForm(request.POST, instance=_post)
